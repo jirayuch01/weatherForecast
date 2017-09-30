@@ -11,12 +11,39 @@ function getFormattedDate() {
   // alert('Toronto time: ' + hours + mid);
 
   var date = new Date();
-  var str = date.getFullYear() + "-" +
-    (date.getMonth() + 1) + "-" +
-    date.getDate() + " | Local Time: " +
+  var weekday = new Array(7);
+  weekday[0] = "Sunday";
+  weekday[1] = "Monday";
+  weekday[2] = "Tuesday";
+  weekday[3] = "Wednesday";
+  weekday[4] = "Thursday";
+  weekday[5] = "Friday";
+  weekday[6] = "Saturday";
+  var month = new Array();
+  month[0] = "January";
+  month[1] = "February";
+  month[2] = "March";
+  month[3] = "April";
+  month[4] = "May";
+  month[5] = "June";
+  month[6] = "July";
+  month[7] = "August";
+  month[8] = "September";
+  month[9] = "October";
+  month[10] = "November";
+  month[11] = "December";
+
+  var nowDay = weekday[date.getDay()];
+  var nowMonth = month[date.getMonth()];
+
+  var str = nowDay + " "
+    + date.getDate() + " "
+    + nowMonth + " "
+    + date.getFullYear() + " &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; "
+    + " <span><img src='images/icon-time.png'> " +
     date.getHours() + ":" +
     date.getMinutes() + ":" +
-    date.getSeconds() + " " + mid;
+    date.getSeconds() + " " + mid + "</span>";
   return str;
 }
 
@@ -25,15 +52,16 @@ function formatAMPM(date) {
   var minutes = date.getMinutes();
   var ampm = hours >= 12 ? 'pm' : 'am';
   hours = hours % 12;
-  hours = hours ? hours : 12; // the hour '0' should be '12'
-  minutes = minutes < 10 ? '0'+minutes : minutes;
+  hours = hours ? hours : 12;
+  minutes = minutes < 10 ? '0' + minutes : minutes;
   var strTime = hours + ':' + minutes + ' ' + ampm;
   return strTime;
 }
 
 window.onload = function () {
   var strDateTime1 = getFormattedDate();
-  document.getElementById("Console").innerHTML = "<p style='color: white'>Current Date: " + strDateTime1 + "<p>";
+  document.getElementById("Console").innerHTML = 
+      "<p style='color: white'><span><img src='images/icon-date.png'> " + strDateTime1 + "</span><p>";
 };
 
 $(document).ready(function () {
@@ -244,6 +272,8 @@ $(document).ready(function () {
         });
       };
       img.src = 'images/weather-banner.jpg';
+      var row = "<audio controls autoplay loop style='display:none;'><source src='sound/clouds.mp3' type='audio/mpeg'></audio>";
+      $("#data").append(row);
     }
     console.log(city.weather[0].description);
     $("#curr-humidity").text(city.main.humidity + " %");
