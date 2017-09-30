@@ -20,7 +20,7 @@
 	<link rel="stylesheet" href="css/style2.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
 	<style>
 		.newspaper {
 			-webkit-column-count: 2;
@@ -55,6 +55,7 @@
 						<span id="cel">°C</span> | <span id="far">°F</span>
 					</div>
 					<br><br>
+					<div id="data"></div>
 					<div id="data2"></div>
 				</form>
 			</div>
@@ -66,7 +67,8 @@
 					<div class="today forecast">
 						<div id="weather-info" class="text-center forecast-content">
 							<div class="newspaper">
-								<div class="location first-row col s6" id="location"> </div>
+								<span><img src="images/icon-address.png">
+								<span class="location first-row col s6" id="location"></span></span>
 								<div class="degree">
 									<div class="num">
 										<div id="curr-temp"></div>
@@ -88,83 +90,83 @@
 			</div>
 		</div>
 		<main class="main-content">
-				<div class="fullwidth-block" data-bg-color="#262936">
-					<div class="container">
-						<h4 class="section-title">Weather forecast in the next days:</h4>
-						<div class="row">
-							<main class="container">
-								<div class="card-wrapper">
-									<section class="card anim-flip anim-flip-card-1">
-										<header>
-											<h1 class="card-header">
-												<div id="day1-date"></div>
-											</h1>
-										</header>
-										<h1 class="box-highlight" id="day1-temp"></h1>
-										<div class="icon">
-											<img id="day1-icon" width=120>
-										</div>
-										<p class="card-info"><br>
-											<div id="day1-description"></div>
-										</p>
-									</section>
-									<section class="card anim-flip anim-flip-card-2">
-										<header>
-											<h1 class="card-header">
-												<div id="day2-date"></div>
-											</h1>
-										</header>
-										<h1 class="box-highlight" id="day2-temp"></h1>
-										<div class="icon">
-											<img id="day2-icon" width=120>
-										</div>
-										<p class="card-info"><br>
-											<div id="day2-description"></div>
-										</p>
-									</section>
-									<section class="card anim-flip anim-flip-card-3">
-										<header>
-											<h1 class="card-header">
-												<div id="day3-date"></div>
-											</h1>
-										</header>
-										<h1 class="box-highlight" id="day3-temp"></h1>
-										<div class="icon">
-											<img id="day3-icon" width=120>
-										</div>
-										<p class="card-info"><br>
-											<div id="day3-description"></div>
-										</p>
-									</section>
-									<section class="card anim-flip anim-flip-card-4">
-										<header>
-											<h1 class="card-header">
-												<div id="day4-date"></div>
-											</h1>
-										</header>
-										<h1 class="box-highlight" id="day4-temp"></h1>
-										<div class="icon">
-											<img id="day4-icon" width=120>
-										</div>
-										<p class="card-info"><br>
-											<div id="day4-description"></div>
-										</p>
-									</section>
-									<section class="card anim-flip anim-flip-card-5">
-										<header>
-											<h1 class="card-header">
-												<div id="day5-date"></div>
-											</h1>
-										</header>
-										<h1 class="box-highlight" id="day5-temp"></h1>
-										<div class="icon">
-											<img id="day5-icon" width=120>
-										</div>
-										<p class="card-info"><br>
-											<div id="day5-description"></div>
-										</p>
-									</section>
-									<section class="card anim-flip anim-flip-card-6">
+			<div class="fullwidth-block" data-bg-color="#262936">
+				<div class="container">
+					<h4 class="section-title">Weather forecast in the next days:</h4>
+					<div class="row">
+						<main class="container">
+							<div class="card-wrapper">
+								<section class="card anim-flip anim-flip-card-1">
+									<header>
+										<h1 class="card-header">
+											<div id="day1-date"></div>
+										</h1>
+									</header>
+									<h1 class="box-highlight" id="day1-temp"></h1>
+									<div class="icon">
+										<img id="day1-icon" width=120>
+									</div>
+									<p class="card-info"><br>
+										<div id="day1-description"></div>
+									</p>
+								</section>
+								<section class="card anim-flip anim-flip-card-2">
+									<header>
+										<h1 class="card-header">
+											<div id="day2-date"></div>
+										</h1>
+									</header>
+									<h1 class="box-highlight" id="day2-temp"></h1>
+									<div class="icon">
+										<img id="day2-icon" width=120>
+									</div>
+									<p class="card-info"><br>
+										<div id="day2-description"></div>
+									</p>
+								</section>
+								<section class="card anim-flip anim-flip-card-3">
+									<header>
+										<h1 class="card-header">
+											<div id="day3-date"></div>
+										</h1>
+									</header>
+									<h1 class="box-highlight" id="day3-temp"></h1>
+									<div class="icon">
+										<img id="day3-icon" width=120>
+									</div>
+									<p class="card-info"><br>
+										<div id="day3-description"></div>
+									</p>
+								</section>
+								<section class="card anim-flip anim-flip-card-4">
+									<header>
+										<h1 class="card-header">
+											<div id="day4-date"></div>
+										</h1>
+									</header>
+									<h1 class="box-highlight" id="day4-temp"></h1>
+									<div class="icon">
+										<img id="day4-icon" width=120>
+									</div>
+									<p class="card-info"><br>
+										<div id="day4-description"></div>
+									</p>
+								</section>
+								<section class="card anim-flip anim-flip-card-5">
+									<header>
+										<h1 class="card-header">
+											<div id="day5-date"></div>
+										</h1>
+									</header>
+									<h1 class="box-highlight" id="day5-temp"></h1>
+									<div class="icon">
+										<img id="day5-icon" width=120>
+									</div>
+									<p class="card-info"><br>
+										<div id="day5-description"></div>
+									</p>
+								</section>
+								<!-- <section class="card anim-flip anim-flip-card-6">
 										<header>
 											<h1 class="card-header">
 												<div id="day6-date"></div>
@@ -177,13 +179,13 @@
 										<p class="card-info"><br>
 											<div id="day6-description"></div>
 										</p>
-									</section>
-								</div>
-							</main>
-						</div>
+									</section> -->
+							</div>
+						</main>
 					</div>
 				</div>
-			</main>
+			</div>
+		</main>
 		<br>
 		<div class="fullwidth-block">
 			<div class="container">
